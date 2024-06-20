@@ -1,10 +1,18 @@
-"""Understand the Encoding Process:
+"""
+We are given a file named enc
+we look what is in the file using cat command in terminal , it turns out it is just a string "灩捯䍔䙻ㄶ形楴獟楮獴㌴摟潦弸彥ㄴㅡて㝽" which was encoded 
+
+description of problem :
+I wonder what this really is... enc ''.join([chr((ord(flag[i]) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+
+Solution:
+Understanding the Encoding Process:
 
     The code takes pairs of characters from the string flag.
     For each pair, it calculates a new character by shifting the first character left by 8 bits (essentially multiplying by 256) and then adding the ASCII value of the second character.
     This effectively combines two characters into one.
 
-Break Down the Code:
+Breaking Down the Code:
 
     ord(flag[i]): Gets the ASCII value of the first character in the pair.
     ord(flag[i + 1]): Gets the ASCII value of the second character in the pair.
@@ -13,7 +21,7 @@ Break Down the Code:
 
 Reversing the Process:
 
-    To reverse the encoding, you need to split the encoded characters back into pairs of the original characters.
+    To reverse the encoding, we need to split the encoded characters back into pairs of the original characters.
     For each encoded character:
         Convert it back to an integer using ord.
         Extract the high and low bytes:
@@ -21,9 +29,9 @@ Reversing the Process:
             The low byte is the result of taking the modulus 256.
         Convert these byte values back to characters using chr.
 
-Implement the Decoding:
+Implementing the Decoding:
 
-    Write a function that processes each character in the encoded string.
+    Let's write a function that processes each character in the encoded string.
     Use integer division and modulus to get the original ASCII values.
     Convert these values back to characters."""
     
