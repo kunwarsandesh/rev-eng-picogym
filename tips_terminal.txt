@@ -71,3 +71,48 @@
   have a newly created home directory the next time you sign into
   the webshell. However, files from your previous username are still
   accessible under /home/<old-username>.
+
+
+
+
+
+
+#compiling a C file using gcc and making it executable follow these steps : 
+
+1. Use gcc to compile the C source code into an executable.
+2. Use chmod +x to make the compiled file executable.
+Here's an example with a file named program.c:
+
+    Compile the C source file using gcc:
+```
+sh
+
+gcc -o program program.c
+```
+In this command:
+
+    -o program specifies the name of the output executable file (in this case, program).
+    program.c is the name of the C source file.
+
+    Make the output file executable:
+```
+sh
+
+chmod +x program
+
+Combining these into a single command sequence:
+```
+sh
+
+gcc -o program program.c && chmod +x program
+```
+In this combined command:
+
+    The && ensures that chmod +x program is only executed if gcc -o program program.c succeeds.
+
+Now the file program will be compiled and made executable. You can run it using:
+```
+sh
+
+./program
+```
